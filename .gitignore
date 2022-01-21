@@ -2,4 +2,4 @@
 bin/
 lib/
 **/__pycache__/
-pyenv.cfg
+pyvenv.cfg
