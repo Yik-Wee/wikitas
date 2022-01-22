@@ -16,8 +16,6 @@ class Tree:
         The parent node (Tree)
     `children`: List[Tree]
         The children of Tree
-    # `visited`: bool
-    #     Whether the node was visited yet (during search)
 
     Methods:
     -------
@@ -32,7 +30,6 @@ class Tree:
         self.root: Any = root
         self.parent: Tree = parent
         self.children: List[Tree] = []
-        # self.visited = False
 
     def add_child(self, branch: 'Tree') -> None:
         """
