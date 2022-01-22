@@ -77,7 +77,7 @@ def get_words(title: str) -> List[str]:
 
 def get_words_with_categories(
     title: str,
-    similarity_threshold: Optional[float] = 0.35
+    similarity_threshold: Optional[float] = 0.4
 ) -> List[str]:
     """
     Get list of words from string (e.g. sentence, phrase, etc.) including words
@@ -94,11 +94,9 @@ def get_words_with_categories(
         above this threshold will be added to the list
     """
     initial_words = get_words(title)
-    words = set()
-    for word in initial_words:
-        if wordnet.synsets(word):  # Word exists in wordnet db
-            words.add(word)
 
+    # Get set of words in title existing in wordnet db
+    words = {word for word in initial_words if wordnet.synsets(word)}
     categories = get_categories(title)
 
     if not words:  # Initial words were invalid
@@ -107,7 +105,7 @@ def get_words_with_categories(
             for word in cat_words:
                 # Words beginning with lowercase are usually unimportant
                 # e.g. in, with, based, etc.
-                if word[0].isupper() and word != "Articles" and wordnet.synsets(word):
+                if word[0].isupper() and word.lower() != "articles" and wordnet.synsets(word):
                     words.add(word)
 
         return list(words)  # Top 5 relevant category words
