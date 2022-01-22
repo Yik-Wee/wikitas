@@ -113,6 +113,9 @@ def get_words_with_categories(
     for cat in categories:
         cat_words = get_words(cat.replace("Category:", ""))
         for word in cat_words:
+            if word.lower() == "articles":  # Ignore "Category:Articles about ..."
+                continue
+
             sim = similarity([word], initial_words)
             if sim >= similarity_threshold:
                 words.add(word)
