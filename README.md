@@ -23,3 +23,33 @@
     -s | --simple           Find path from START_PAGE to END_PAGE using without matching words
     -Pw | --Pmatchwords     Same as --matchwords but using multi-threaded http requests to the wikipedia api
     -Ps | --Psimple         (Default) Same as --simple but using multi-threaded http requests to the wikipedia api
+### Example: `python3 wikitas.py among_us black_hole -Pw -Ps -w -s`
+### Output:
+```
+-----------------------------------
+Starting find_path_wordmatching
+Finding path from Among Us to Black hole
+Matching links against ['Black', 'hole']
+[ Current page: Black ]                                                                                                       Among Us -> Color blindness -> Black -> Black hole
+Found in 30.859390088000055 s
+-----------------------------------
+-----------------------------------
+Starting find_path_simple_parallel
+Finding path from Among Us to Black hole
+[ Current page: Albert Einstein ]                                                                                             Among Us -> Alexandria Ocasio-Cortez -> Albert Einstein -> Black hole
+Found in 52.24804970499986 s
+-----------------------------------
+-----------------------------------
+Starting find_path_wordmatching_parallel
+Finding path from Among Us to Black hole
+Matching links against ['Black', 'hole']
+[ Current page: Black ]                                                                                                       Among Us -> Color blindness -> Black -> Black hole
+Found in 7.343498709999949 s
+-----------------------------------
+-----------------------------------
+Starting find_path_simple
+Finding path from Among Us to Black hole
+[ Current page: Albert Einstein ]                                                                                             Among Us -> Alexandria Ocasio-Cortez -> Albert Einstein -> Black hole
+Found in 780.7410415399997 s
+-----------------------------------
+```
