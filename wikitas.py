@@ -31,20 +31,28 @@ OPTIONS:
 """)
 
 
-def run_wikitas(start: str, end: str, callback: Optional[Callable[str, str]] = find_path_simple_parallel) -> None:
+def run_wikitas(
+    start: str,
+    end: str,
+    callback: Optional[Callable[str, str]] = find_path_simple_parallel
+) -> None:
+    print("-----------------------------------")
+    print(f"Starting {callback.__name__}")
+
     start_time = timeit.default_timer()
     path = callback(start, end)
     end_time = timeit.default_timer()
 
     log_path(path)
     print(f"Found in {end_time - start_time} s")
+    print("-----------------------------------")
 
 
 def main() -> None:
     args = sys.argv
     args.pop(0)  # Get args from user
-    print(args)
-    callback_options = set()
+
+    callback_options = set()  # No duplicate callbacks
     start_end = []
 
     # Arg parsing
