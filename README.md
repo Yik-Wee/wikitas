@@ -18,11 +18,13 @@
 4. Run tests or the main file `wikitas.py`
 ### USAGE: `python3 wikitas.py [START_PAGE] [END_PAGE] [...OPTIONS]`
 ### OPTIONS:
-    -h | --help             Display this help page
-    -w | --matchwords       Find path from START_PAGE to END_PAGE by matching the relatedness of words
-    -s | --simple           Find path from START_PAGE to END_PAGE using without matching words
-    -Pw | --Pmatchwords     Same as --matchwords but using multi-threaded http requests to the wikipedia api
-    -Ps | --Psimple         (Default) Same as --simple but using multi-threaded http requests to the wikipedia api
+```
+-h | --help             Display this help page
+-w | --matchwords       Find path from START_PAGE to END_PAGE by matching the relatedness of words
+-s | --simple           Find path from START_PAGE to END_PAGE using without matching words
+-Pw | --Pmatchwords     Same as --matchwords but using multi-threaded http requests to the wikipedia api
+-Ps | --Psimple         (Default) Same as --simple but using multi-threaded http requests to the wikipedia api
+```
 ### Example: `python3 wikitas.py among_us black_hole -Pw -Ps -w -s`
 ### Output:
 ```
