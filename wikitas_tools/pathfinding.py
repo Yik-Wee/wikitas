@@ -38,6 +38,7 @@ def find_path_simple(start: str, dest: str) -> List[str]:
         page_links = get_links(current_page.root)
         for link in page_links:
             if link == dest:
+                print()
                 return [start, *current_page.parents(), dest]
 
             if link not in visited:
@@ -46,6 +47,7 @@ def find_path_simple(start: str, dest: str) -> List[str]:
                 current_page.add_child(branch)
                 queue.put(branch)
 
+    print()
     return []
 
 
@@ -87,6 +89,7 @@ def find_path_wordmatching(start: str, dest: str, top_n: Optional[int] = 7) -> L
 
         for link in page_links:
             if link == dest:
+                print()
                 return [start, *current_page.parents(), dest]
 
             if link not in visited:
@@ -104,6 +107,7 @@ def find_path_wordmatching(start: str, dest: str, top_n: Optional[int] = 7) -> L
             current_page.add_child(branch)
             queue.put(branch)
 
+    print()
     return []
 
 
@@ -143,6 +147,7 @@ def find_path_simple_parallel(start: str, dest: str) -> List[str]:
 
             for link in links:
                 if link == dest:
+                    print()
                     return [start, *page.parents(), dest]
 
                 if link not in visited:
@@ -151,6 +156,7 @@ def find_path_simple_parallel(start: str, dest: str) -> List[str]:
                     page.add_child(branch)
                     queue.put(branch)
 
+    print()
     return []
 
 
@@ -196,6 +202,7 @@ def find_path_wordmatching_parallel(start: str, dest: str, top_n: Optional[int] 
 
             for link in links:
                 if link == dest:
+                    print()
                     return [start, *page.parents(), dest]
 
                 if link not in visited:
@@ -212,4 +219,5 @@ def find_path_wordmatching_parallel(start: str, dest: str, top_n: Optional[int] 
                 page.add_child(branch)
                 queue.put(branch)
 
+    print()
     return []
