@@ -34,7 +34,7 @@ OPTIONS:
 def run_wikitas(
     start: str,
     end: str,
-    callback: Optional[Callable[str, str]] = find_path_simple_parallel
+    callback: Optional[Callable[[str], str]] = find_path_simple_parallel
 ) -> None:
     print("-----------------------------------")
     print(f"Starting {callback.__name__}")
